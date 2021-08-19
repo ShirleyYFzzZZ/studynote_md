@@ -28,7 +28,36 @@ $$
 
 上式是理想的uplift计算形式，实际上，对用户$i$我们不可能同时观察到使用**策略（treatment）** 和 **未使用策略（control）** 的输出结果，即不可能同时得到$Y_i(W=1)$和$Y_i(W=0)$，因为对某个用户，我们要么发优惠券，要么不发，只可能观察到一个结果。
 
+为了解决这个问题，设条件独立假设CIA：
 
+$$
+\left\{Y_{i}(1), Y_{i}(0)\right\} \perp W_{i} \mid X_{i}
+$$
+
+包含两方面解读：
+1. 不能根据策略产生潜在结果的好坏来选择策略，也就是给定条件下（相同特征的人群）：
+
+$$
+p\left(W \mid X=x, Y_{i}(0), Y_{i}(1)\right)=p\left(W \mid X=x, Y_{j}(0), Y_{j}(1)\right)
+$$
+
+2. 策略的分配也不会影响到潜在的结果分布：
+$$
+p\left(Y_{i}(0), Y_{i}(1) \mid X=x, W=W_{i}\right)=p\left(Y_{j}(0), Y_{j}(1) \mid X=x, W=W_{j}\right)
+$$
+
+
+
+
+在条件独立假设下，条件平均因果效应的期望估计值是：
+$$
+\begin{aligned}
+\text { CATE } &=\mathbb{E}\left[Y^{F} \mid W=1, X=x\right]-\mathbb{E}\left[Y^{F} \mid W=0, X=x\right] \\
+&=\frac{1}{N_{x}} \sum_{\left\{i: X_{i}=x\right\}}\left(Y_{i}(W=1)-Y_{i}(W=0)\right)=\frac{1}{N_{x}} \sum_{\left\{i: X_{i}=x\right\}} \mathrm{ITE}_{i}
+\end{aligned}
+$$
+
+$Y^F$代表了实际观察结果。
 
 ### 参考文献
 
