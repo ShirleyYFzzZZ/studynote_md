@@ -40,8 +40,8 @@
 
 ->
 
-组间分误差：$MSA=\frac{SSA}{k-1}\sim\chi^{2}(k-1)$
-组内均分误差：$MSE=\frac{SSE}{n-k}\sim\chi^{2}(n-k)$
+组间均方误差：$MSA=\frac{SSA}{k-1}\sim\chi^{2}(k-1)$
+组内均方误差：$MSE=\frac{SSE}{n-k}\sim\chi^{2}(n-k)$
 
 
 于是我们可以构造F统计量：$$F=\frac{MSA}{MSE} \sim F(k-1,n-k)$$
